@@ -11,7 +11,7 @@ function cadastroNotas () {
     soma das notas += vetores 2 a 4
     media da soma
 
-    return da media no vetor + as notas 1, 2, 3
+    return da media no vetor + as notas 1, 2, 3 - volta ao menu
 }
 
 
