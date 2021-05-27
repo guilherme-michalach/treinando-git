@@ -20,7 +20,10 @@
             
             //talvez dropdown menu?
 
-            if (opcao == 0 || opcao > 4 || opcao < 0) break
+            if (opcao == 0 || opcao > 4 || opcao < 0) {
+                console.log("Programa Finalizado!")
+                break
+            }
 
             switch(opcao) {
                 case 1:
@@ -32,6 +35,7 @@
                 case 4:
                     função4()
                 default:
+                    console.log("Programa Finalizado!")
                     break;
             }
 
