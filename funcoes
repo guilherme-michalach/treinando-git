@@ -1,0 +1,48 @@
+Pamela e Diego
+
+function cadastroNotas () {
+
+    confirmação da matricula e veificação da existencia dela
+    se existir substitui as notas
+    se não existir a matricula, break
+
+    inserção das notas vetor 1, 2, 3
+
+    soma das notas += vetores 2 a 4
+    media da soma
+
+    return da media no vetor + as notas 1, 2, 3
+}
+
+
+Mateus
+function matriculaAluno () {
+
+    verificar existencia da matricula, se não, break
+    e volta ao menu inicial
+
+    se existir, alterar nome do aluno
+
+}
+
+
+function listagemAlunos () {
+
+    amostra da tabela total com a opção de voltar para o menu inicial
+
+}
+
+Dirlei
+function cadastroAlunos () {
+
+    cadastrar matricula e nome nos vetores 0 e 1
+
+    verificar se ele não esta cadastrado logo apos a inserção da matricula
+
+}
+
+function menu () {
+
+
+}
+
