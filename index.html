@@ -6,8 +6,20 @@
     <title>Document</title>
 </head>
 <body>
-    <script> 
-alert(`A média das notas é ${somaNotas.tofixed(2)} `)
+    <script>
+    //2 calculaMedia(notas) -> Retorna a média de um vetor de notas
+        
+    function calculaMedia(notas) {
+     let somaNotas = 0
+     for (let nota of notas) {
+         somaNotas += nota
+            }
+            
+    return somaNotas / notas.length
+        }        
+
+    alert(`A média das notas é ${somaNotas.tofixed(2)} `)
+
     </script>
 </body>
 </html>
