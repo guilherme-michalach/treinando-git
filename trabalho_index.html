@@ -97,7 +97,7 @@
                             notas[i] = +prompt("Digite suas notas")
                         }
                     salvarNotas(notas, matricula1)
-                    return calculoNotas(notas,matricula)
+                    return calculoNotas(notas,matricula1)
                 } 
             }
             alert("Não foi possivel encontrar a matrícula")
@@ -109,22 +109,26 @@
                     a[2] = notas[0]
                     a[3] = notas[1]
                     a[4] = notas[2]
-
                 }
             }
         }
 
-        function calculoNotas(notas, matricula) {
+        function calculoNotas(notas, matricula1) {
             let soma = 0
-            for(let i = 0; i < notas.length; i++) soma += notas[i];
+            for(let i = 0; i < notas.length; i++) {
+                soma += notas[i]
+            }
 
             let media = soma / notas.length
-            calculoMedia(media, matricula)
+            calculoMedia(media, matricula1)
         } 
 
-        function calculoMedia(media, matricula) {
+        function calculoMedia(media, matricula1) {
             for(let a of matriz) {
-                a[5] = media.toFixed(2)
+                if (matricula1 == a[0]) {
+                media = media.toFixed(2)
+                a[5] = media
+                }
             }
         }
         
