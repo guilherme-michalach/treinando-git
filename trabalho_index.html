@@ -8,39 +8,83 @@
 <body>
     <script>
         
-        while(true) {
+        let matriz = []
 
-            let opcao
+        menu()
 
-            function menu () {
-                opcao = +prompt("Menu de Alunos\t\n1) Cadastrar aluno\n2) Editar informações do aluno\n3) Cadastrar notas de um aluno\n4) Listar alunos\n0) Sair")
-            }
-
-            menu()
+        function menu() {
             
-            //talvez dropdown menu?
+            let inicio
 
-            if (opcao == 0 || opcao > 4 || opcao < 0) {
-                console.log("Programa Finalizado!")
-                break
-            }
+            do {
+                
+            let opcao = prompt("Menu de Alunos\n1) Cadastrar aluno\n2) Editar informações do aluno\n3) Cadastrar notas de um aluno\n4) Listar alunos\n0) Sair")
+        
+            inicio = funcoesMenu(opcao)
 
-            switch(opcao) {
-                case 1:
-                    função1()
-                case 2:
-                    função2()
-                case 3:
-                    função3()
-                case 4:
-                    função4()
-                default:
-                    console.log("Programa Finalizado!")
-                    break;
-            }
+            } while (inicio == true)
 
         }
-   
+
+            function funcoesMenu(opcao) {
+
+            //talvez dropdown menu?
+
+            switch(opcao) {
+                case "1":
+                    cadastroAlunos()
+                    break
+                case "2":
+                    matriculaAluno();
+                    break;
+                case "3":
+                    cadastroNotas()
+                    break
+                case "4":
+                    listagemAlunos()
+                    break
+                case "0":
+                case null:
+                    return false;
+                    break;
+                default:
+                    alert(`${opcao} não é uma opção válida!`)     
+            }
+
+            // ver se precisa desse return msm depois
+            return true
+
+            }
+
+
+            
+            function listagemAlunos () {
+
+                let matrizOrganizada = []
+                
+                for (let i = 0; i < matriz.length; i++){
+                matrizOrganizada.push({})
+                matrizOrganizada[i].Matricula = matriz[i][0]
+                matrizOrganizada[i].Nome = matriz[i][1]
+
+                if (matriz[i][2] == undefined){
+                    matrizOrganizada[i].Nota_1 = "--"
+                    matrizOrganizada[i].Nota_2 = "--"
+                    matrizOrganizada[i].Nota_3 = "--"
+                    matrizOrganizada[i].Média = "--"
+
+                } else {
+                    matrizOrganizada[i].Nota_1 = matriz[i][2]
+                    matrizOrganizada[i].Nota_2 = matriz[i][3]
+                    matrizOrganizada[i].Nota_3 = matriz[i][4]
+                    matrizOrganizada[i].Média = matriz[i][5]
+                }
+            }
+            
+            console.table(matrizOrganizada)
+
+        }
+
     </script>
 </body>
 </html>
