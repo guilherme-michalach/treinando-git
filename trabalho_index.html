@@ -7,57 +7,51 @@
 </head>
 <body>
     <script>
-  
+        "use strict"
+
         let matriz = []
 
         menu()
 
+        //Função que executará o menu até que inicio não seja mais verdadeiro.
         function menu() {
-    
             let inicio
 
-            do {
-                
-            let opcao = prompt("Menu de Alunos\n1) Cadastrar aluno\n2) Editar informações do aluno\n3) Cadastrar notas de um aluno\n4) Listar alunos\n0) Sair")
-
-            inicio = funcoesMenu(opcao)
+            do {    
+                let opcao = prompt("Menu de Alunos\n1) Cadastrar aluno\n2) Editar informações do aluno\n3) Cadastrar notas de um aluno\n4) Listar alunos\n0) Sair")
+                inicio = funcoesMenu(opcao)
 
             } while (inicio == true)
-
         }
 
         function funcoesMenu(opcao) {
+            //talvez dropdown menu?
 
-        //talvez dropdown menu?
-
-        switch(opcao) {
-            case "1":
-                cadastroAlunos()
-                break
-            case "2":
-                matriculaAluno();
-                break;
-            case "3":
-                cadastroNotas()
-                break
-            case "4":
-                listagemAlunos()
-                break
-            case "0":
-            case null:
-                return false;
-                break;
-            default:
-                alert(`${opcao} não é uma opção válida!`)     
+            switch(opcao) {
+                case "1":
+                    cadastroAlunos()
+                    break
+                case "2":
+                    matriculaAluno();
+                    break;
+                case "3":
+                    cadastroNotas()
+                    break
+                case "4":
+                    listagemAlunos()
+                    break
+                case "0":
+                case null:
+                    return false;
+                    break;
+                default:
+                    alert(`${opcao} não é uma opção válida!`)     
+            }
+            return true
         }
 
-        // ver se precisa desse return msm depois
-        return true
-
-        }
-
+        //Função para o cadastro de aluno e matrícula na matriz.
         function cadastroAlunos() {
-            
             let matricula = prompt("Digite o número de matrícula")
             let nome = prompt("Digite o nome do aluno")
             
@@ -67,13 +61,12 @@
                 } 
             }
 
-            matrizNovoAluno = []     
-            matrizNovoAluno.push(matricula, nome)
-            matriz.push(matrizNovoAluno)    
-
-            // return matriculaAluno(matricula, nome)
+            let novoAluno = []     
+            novoAluno.push(matricula, nome)
+            matriz.push(novoAluno)    
         }
 
+        //Edição de matrícula com o uso de booleans para confirmar a alteração.
         function matriculaAluno() {
             let matriculaDigitada = +prompt("Digite a matrícula do aluno que você quer editar:")
             let bool = false
@@ -87,6 +80,8 @@
             }
         }
         
+        //Verificação da matricula para poder lançar as notas. Além de excutar a função que salva os valores delas na matriz.
+        //Além de enviar os valores para a função calculoNotas de forma a calcular a média.
         function cadastroNotas(notas, matricula) {
             let matricula1 = +prompt("Digite o número de matrícula")
 
@@ -103,6 +98,7 @@
             alert("Não foi possivel encontrar a matrícula")
         }
             
+        //Verificação da matricula e salvar valor das notas na matriz.
         function salvarNotas(notas, matricula) {
             for(let a of matriz) { 
                 if(matricula == a[0]) {
@@ -111,8 +107,9 @@
                     a[4] = notas[2]
                 }
             }
-        }
+        } 
 
+        //Realização do cálculo da média e executar a função que salvará ela na matriz.
         function calculoNotas(notas, matricula1) {
             let soma = 0
             for(let i = 0; i < notas.length; i++) {
@@ -123,40 +120,41 @@
             calculoMedia(media, matricula1)
         } 
 
+        //Verificação da matrícula e salvar valor da média na matriz.
         function calculoMedia(media, matricula1) {
             for(let a of matriz) {
                 if (matricula1 == a[0]) {
-                media = media.toFixed(2)
-                a[5] = media
+                    media = media.toFixed(2)
+                    a[5] = media
                 }
             }
         }
         
+        //Amostra da matriz final organizada com o uso de console.table.
         function listagemAlunos () {
-
-            let matrizOrganizada = []
+            let matrizFinal = []
             
             for(let i = 0; i < matriz.length; i++) {
-                matrizOrganizada.push({})
-                matrizOrganizada[i].Matricula = matriz[i][0]
-                matrizOrganizada[i].Nome = matriz[i][1]
+                matrizFinal.push({})
+                matrizFinal[i].Matricula = matriz[i][0]
+                matrizFinal[i].Nome = matriz[i][1]
 
                 if(matriz[i][2] == undefined) {
-                    matrizOrganizada[i].Nota_1 = "--"
-                    matrizOrganizada[i].Nota_2 = "--"
-                    matrizOrganizada[i].Nota_3 = "--"
-                    matrizOrganizada[i].Média = "--"
+                    matrizFinal[i].Nota_1 = "--"
+                    matrizFinal[i].Nota_2 = "--"
+                    matrizFinal[i].Nota_3 = "--"
+                    matrizFinal[i].Média = "--"
 
                 } else {
-                    matrizOrganizada[i].Nota_1 = matriz[i][2]
-                    matrizOrganizada[i].Nota_2 = matriz[i][3]
-                    matrizOrganizada[i].Nota_3 = matriz[i][4]
-                    matrizOrganizada[i].Média = matriz[i][5]
+                    matrizFinal[i].Nota_1 = matriz[i][2]
+                    matrizFinal[i].Nota_2 = matriz[i][3]
+                    matrizFinal[i].Nota_3 = matriz[i][4]
+                    matrizFinal[i].Média = matriz[i][5]
                 }
             }
+            //talvez usar labels para ficar menor?
 
-            console.table(matrizOrganizada)
-
+            console.table(matrizFinal)
         }
     </script>
 </body>
