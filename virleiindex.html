@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+function cadastraNotas() {  // cadastrar alunos &&  cadastrar notas ? 
+            let notas = []   // lançar notas na linhas 1 e colunas 1
+
+            for (let i = 0; i < 3; i++) {
+                notas[i] = prompt(`Digite a ${i + 1} nota`)
+            }
+            
+            return notas
+        }
+        
+    function calculaMedia(notas) {
+     let somaNotas = 0
+     for (let nota of notas) {
+         somaNotas += nota
+            }
+            
+    return somaNotas / notas.length
+        }        
+
+    alert(`A média das notas é ${somaNotas.tofixed(2)} `) 
+
+
+
+    </script>
+</body>
+</html>
