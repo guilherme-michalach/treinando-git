@@ -109,7 +109,7 @@
             }
         } 
 
-        //Realização do cálculo da média e executar a função que salvará ela na matriz.
+        //Realização do cálculo da média e salvar ela na matriz.
         function calculoNotas(notas, matricula1) {
             let soma = 0
             for(let i = 0; i < notas.length; i++) {
@@ -117,19 +117,14 @@
             }
 
             let media = soma / notas.length
-            calculoMedia(media, matricula1)
-        } 
-
-        //Verificação da matrícula e salvar valor da média na matriz.
-        function calculoMedia(media, matricula1) {
             for(let a of matriz) {
                 if (matricula1 == a[0]) {
                     media = media.toFixed(2)
                     a[5] = media
                 }
             }
-        }
-        
+        } 
+
         //Amostra da matriz final organizada com o uso de console.table.
         function listagemAlunos () {
             let matrizFinal = []
