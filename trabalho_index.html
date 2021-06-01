@@ -53,7 +53,6 @@
         //Função para o cadastro de aluno e matrícula na matriz.
         function cadastroAlunos() {
             let matricula = prompt("Digite o número de matrícula")
-            let nome = prompt("Digite o nome do aluno")
             
             for(let a of matriz) {
                 if (matricula === a[0]){
@@ -61,6 +60,7 @@
                 } 
             }
 
+            let nome = prompt("Digite o nome do aluno")
             let novoAluno = []     
             novoAluno.push(matricula, nome)
             matriz.push(novoAluno)    
